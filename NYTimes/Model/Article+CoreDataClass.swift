@@ -1,6 +1,6 @@
 //
 //  Article+CoreDataClass.swift
-//  
+//  NYTimes
 //
 //  Created by Елена Русских on 22.11.2022.
 //

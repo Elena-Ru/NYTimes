@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/elenarusskih/ProjectsGB/VRG/NYTimes/NYTimes/Model/Article+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/elenarusskih/ProjectsGB/VRG/NYTimes/NYTimes/Model/Article+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
       location = "group:NYTimes.xcodeproj">
    </FileRef>
    <FileRef

@@ -1,6 +1,6 @@
 //
 //  Article+CoreDataProperties.swift
-//  
+//  NYTimes
 //
 //  Created by Елена Русских on 22.11.2022.
 //
@@ -20,5 +20,9 @@ extension Article {
     @NSManaged public var img: Data?
     @NSManaged public var title: String?
     @NSManaged public var url: String?
+
+}
+
+extension Article : Identifiable {
 
 }

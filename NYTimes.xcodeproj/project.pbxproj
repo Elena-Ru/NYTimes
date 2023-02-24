@@ -15,6 +15,9 @@
 		B429165B292B8CC00097EC9A /* FavoriteControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B429165A292B8CC00097EC9A /* FavoriteControl.swift */; };
 		B4697B84292D5622000A0963 /* Article+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4697B82292D5622000A0963 /* Article+CoreDataClass.swift */; };
 		B4697B85292D5622000A0963 /* Article+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4697B83292D5622000A0963 /* Article+CoreDataProperties.swift */; };
+		B4CD3E0129A8B79B003130AE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CD3E0029A8B79B003130AE /* LoginViewController.swift */; };
+		B4CD3E0329A8EF7D003130AE /* Extension+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CD3E0229A8EF7D003130AE /* Extension+TextField.swift */; };
+		B4CD3E0729A918A1003130AE /* LoginRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CD3E0629A918A1003130AE /* LoginRootView.swift */; };
 		B4EFEEC12926AAA00055BF0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EFEEC02926AAA00055BF0B /* AppDelegate.swift */; };
 		B4EFEEC32926AAA00055BF0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EFEEC22926AAA00055BF0B /* SceneDelegate.swift */; };
 		B4EFEECA2926AAA20055BF0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4EFEEC92926AAA20055BF0B /* Assets.xcassets */; };
@@ -38,6 +41,9 @@
 		B429165A292B8CC00097EC9A /* FavoriteControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteControl.swift; sourceTree = "<group>"; };
 		B4697B82292D5622000A0963 /* Article+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B4697B83292D5622000A0963 /* Article+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B4CD3E0029A8B79B003130AE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B4CD3E0229A8EF7D003130AE /* Extension+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+TextField.swift"; sourceTree = "<group>"; };
+		B4CD3E0629A918A1003130AE /* LoginRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRootView.swift; sourceTree = "<group>"; };
 		B4EFEEBD2926AAA00055BF0B /* NYTimes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYTimes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4EFEEC02926AAA00055BF0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4EFEEC22926AAA00055BF0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +101,7 @@
 			children = (
 				B4EFEEC02926AAA00055BF0B /* AppDelegate.swift */,
 				B4EFEEC22926AAA00055BF0B /* SceneDelegate.swift */,
+				B4CD3E0229A8EF7D003130AE /* Extension+TextField.swift */,
 				B4EFEEE829277CD10055BF0B /* Config */,
 				B4EFEEE329275E760055BF0B /* APIService */,
 				B4EFEEE229275E630055BF0B /* View */,
@@ -114,6 +121,7 @@
 				B4EFEEDC2926B8930055BF0B /* FavoriteViewController.swift */,
 				B4EFEED62926B84E0055BF0B /* ApiRequestViewController.swift */,
 				B4EFEED42926B7540055BF0B /* MainTabbarController.swift */,
+				B4CD3E0029A8B79B003130AE /* LoginViewController.swift */,
 				B429161129290E540097EC9A /* DetailViewController.swift */,
 			);
 			path = Controller;
@@ -134,6 +142,7 @@
 			children = (
 				B429160F2928C0470097EC9A /* SharedTableViewCell.swift */,
 				B429165A292B8CC00097EC9A /* FavoriteControl.swift */,
+				B4CD3E0629A918A1003130AE /* LoginRootView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -281,8 +290,10 @@
 				B4EFEEC12926AAA00055BF0B /* AppDelegate.swift in Sources */,
 				B4EFEED52926B7540055BF0B /* MainTabbarController.swift in Sources */,
 				B4697B84292D5622000A0963 /* Article+CoreDataClass.swift in Sources */,
+				B4CD3E0329A8EF7D003130AE /* Extension+TextField.swift in Sources */,
 				B4291651292A90550097EC9A /* ServiceCoreData.swift in Sources */,
 				B4EFEEC32926AAA00055BF0B /* SceneDelegate.swift in Sources */,
+				B4CD3E0729A918A1003130AE /* LoginRootView.swift in Sources */,
 				B42916102928C0470097EC9A /* SharedTableViewCell.swift in Sources */,
 				B429161229290E540097EC9A /* DetailViewController.swift in Sources */,
 				B4EFEEEA29277CEE0055BF0B /* APIKey.swift in Sources */,
@@ -290,6 +301,7 @@
 				B4EFEEE529275EAF0055BF0B /* APIService.swift in Sources */,
 				B4EFEEE729276D640055BF0B /* News.swift in Sources */,
 				B4697B85292D5622000A0963 /* Article+CoreDataProperties.swift in Sources */,
+				B4CD3E0129A8B79B003130AE /* LoginViewController.swift in Sources */,
 				B429161E2929B2820097EC9A /* CoreDataModel.xcdatamodeld in Sources */,
 				B4EFEED72926B84E0055BF0B /* ApiRequestViewController.swift in Sources */,
 				B429165B292B8CC00097EC9A /* FavoriteControl.swift in Sources */,

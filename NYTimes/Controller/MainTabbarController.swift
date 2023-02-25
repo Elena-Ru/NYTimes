@@ -6,8 +6,18 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class MainTabBarController: UITabBarController {
+    
+    @objc func logout() {
+                do {
+                    try Auth.auth().signOut()
+                    self.dismiss(animated: true)
+                } catch (let error) {
+                    print("Auth sign out failed: \(error)")
+                }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

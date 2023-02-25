@@ -6,12 +6,22 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ApiRequestViewController: UIViewController {
     
     let apiService = ApiService.shared
     
     var news = [News]()
+    
+    let logoutButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
+        return button
+    }()
+
+    @objc func logout() {
+        print(1)
+    }
 
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -35,6 +45,7 @@ class ApiRequestViewController: UIViewController {
         tableView.delegate = self
         tableView.sectionHeaderTopPadding = 5.0
         view.addSubview(tableView)
+        self.navigationItem.setLeftBarButton(logoutButton, animated: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {

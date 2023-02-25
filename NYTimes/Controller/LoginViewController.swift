@@ -9,6 +9,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    var mainTabbarController: MainTabBarController?
+    
     var rootView = LoginRootView()
     
     override func loadView() {
@@ -30,7 +32,6 @@ class LoginViewController: UIViewController {
             textPassword.borderStyle = .roundedRect
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        
         let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
             guard let emailField = alert.textFields?[0],
                   let passwordField = alert.textFields?[1],
@@ -46,11 +47,21 @@ class LoginViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    @objc func login(){
+        guard rootView.loginTextFieldView.text != "" && rootView.passwordTextFieldView.text != "" else { return}
+        let mainVController = UINavigationController(rootViewController: mainTabbarController!)
+        mainVController.modalPresentationStyle = .fullScreen
+        mainTabbarController?.modalTransitionStyle = .flipHorizontal
+        present(mainVController, animated: true)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        mainTabbarController = MainTabBarController()
         rootView.singUpButton.addTarget(self, action: #selector(signUp), for: .touchUpInside)
+        rootView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
     }
     
     override func viewDidAppear(_ animated: Bool) {

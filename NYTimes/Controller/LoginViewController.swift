@@ -52,4 +52,8 @@ class LoginViewController: UIViewController {
         view.backgroundColor = .white
         rootView.singUpButton.addTarget(self, action: #selector(signUp), for: .touchUpInside)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        rootView.animateLogoAppearing()
+    }
 }

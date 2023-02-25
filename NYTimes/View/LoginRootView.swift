@@ -186,4 +186,11 @@ class LoginRootView: UIView {
             signUpStack.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
+    
+    func animateLogoAppearing() {
+        logoImageView.transform = CGAffineTransform(rotationAngle: .pi)
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut , animations: {
+            self.logoImageView.transform = CGAffineTransform(rotationAngle: 2 * .pi)
+        })
+    }
 }

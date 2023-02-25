@@ -193,4 +193,38 @@ class LoginRootView: UIView {
             self.logoImageView.transform = CGAffineTransform(rotationAngle: 2 * .pi)
         })
     }
+    
+    func animateTextFieldAppearing() {
+        loginTextFieldView.transform = CGAffineTransform(translationX: -300, y: -30)
+        self.layoutIfNeeded()
+        let originalCenter = loginTextFieldView.center
+        UIView.animateKeyframes(withDuration: 1, delay: 0,options: []) {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
+                self.loginTextFieldView.transform = CGAffineTransform(translationX: 0, y: -60)
+                self.layoutIfNeeded()
+            }
+            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
+                self.loginTextFieldView.transform = CGAffineTransform(translationX: 0, y: 0)
+                self.layoutIfNeeded()
+
+            }
+        }
+    }
+    
+    func animatePasswordTextFieldAppearing() {
+        passwordTextFieldView.transform = CGAffineTransform(translationX: -300, y: -30)
+        self.layoutIfNeeded()
+        let originalCenter = passwordTextFieldView.center
+        UIView.animateKeyframes(withDuration: 1, delay: 0,options: []) {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
+                self.passwordTextFieldView.transform = CGAffineTransform(translationX: 0, y: -60)
+                self.layoutIfNeeded()
+            }
+            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
+                self.passwordTextFieldView.transform = CGAffineTransform(translationX: 0, y: 0)
+                self.layoutIfNeeded()
+
+            }
+        }
+    }
 }

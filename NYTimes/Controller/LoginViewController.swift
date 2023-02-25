@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
     var mainTabbarController: MainTabBarController?
     
     var rootView = LoginRootView()
+    
+    private var handle: AuthStateDidChangeListenerHandle!
     
     override func loadView() {
         super.loadView()
@@ -37,9 +40,19 @@ class LoginViewController: UIViewController {
                   let passwordField = alert.textFields?[1],
                   let email = emailField.text,
                   let password = passwordField.text else {return}
-            let userDefaults = UserDefaults.standard
-            userDefaults.set(email, forKey: "email")
-            userDefaults.set(password, forKey: "password")
+            
+            Auth.auth().createUser(withEmail: email, password: password) { user, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+                //                else {
+                //                    Auth.auth().signIn(withEmail: email, password: password)
+                //                }
+                
+            }
+            //            let userDefaults = UserDefaults.standard
+            //            userDefaults.set(email, forKey: "email")
+            //            userDefaults.set(password, forKey: "password")
         }
         alert.addAction(cancelAction)
         alert.addAction(saveAction)
@@ -48,14 +61,41 @@ class LoginViewController: UIViewController {
     }
     
     @objc func login(){
-        guard rootView.loginTextFieldView.text != "" && rootView.passwordTextFieldView.text != "" else { return}
-        let mainVController = UINavigationController(rootViewController: mainTabbarController!)
-        mainVController.modalPresentationStyle = .fullScreen
-        mainTabbarController?.modalTransitionStyle = .flipHorizontal
-        present(mainVController, animated: true)
+        guard let email = rootView.loginTextFieldView.text,
+              let password = rootView.passwordTextFieldView.text,
+              email.count > 0,
+              password.count > 0 else {
+            let alert = UIAlertController(title: "ERROR", message: "Login/password is not entered", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { action in
+                alert.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true)
+            })
+            )
+            present(alert, animated: true)
+            return
+        }
+        Auth.auth().signIn(withEmail: email, password: password) { user, error in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+        
+//        let mainVController = UINavigationController(rootViewController: mainTabbarController!)
+//        mainVController.modalPresentationStyle = .fullScreen
+//        mainTabbarController?.modalTransitionStyle = .flipHorizontal
+//        present(mainVController, animated: true)
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        self.handle = Auth.auth().addStateDidChangeListener({ auth, user in
+            if user != nil {
+                let mainVController = UINavigationController(rootViewController: self.mainTabbarController!)
+                mainVController.modalPresentationStyle = .fullScreen
+                self.mainTabbarController?.modalTransitionStyle = .flipHorizontal
+                self.present(mainVController, animated: true)
+            }
+        })
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -68,5 +108,8 @@ class LoginViewController: UIViewController {
         rootView.animateLogoAppearing()
         rootView.animateTextFieldAppearing()
         rootView.animatePasswordTextFieldAppearing()
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        Auth.auth().removeStateDidChangeListener(handle)
     }
 }

@@ -94,13 +94,11 @@ class LoginRootView: UIView {
         button.setTitle("Sign Up", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.translatesAutoresizingMaskIntoConstraints = false
-        
         return button
     }()
     
     init() {
         super.init(frame: CGRect())
-        
         setupLayout()
     }
     

@@ -15,7 +15,6 @@ class FavoriteControl: UIButton {
     var news: News?
     
     func setFavoriteButton(news: News? ) {
-
         self.news = news
         if self.service.fetchIsFav(id: (self.news?.id)!) {
                 setFaveIcon()
@@ -27,7 +26,6 @@ class FavoriteControl: UIButton {
     }
     
     @objc func buttonAction(sender: UIButton!) {
-    
         if service.fetchIsFav(id: (news?.id)!) {
             setCommonIcon()
             service.deleteFromCD(id: (news?.id)!)
@@ -38,19 +36,16 @@ class FavoriteControl: UIButton {
     }
     
     private func setFaveIcon() {
-        
         self.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
         self.tintColor = .systemGray
     }
     
     private func setCommonIcon() {
-        
         self.setImage(UIImage(systemName: "bookmark"), for: .normal)
         self.tintColor = .lightGray
     }
     
     func getFrameSave(width: CGFloat, height: CGFloat) {
-        
         let saveControlSize = getShadowViewSize(side: saveSize)
         let saveControlX = width - saveSize - rightInset
         let saveControlY = (height - saveSize ) / 2
@@ -59,7 +54,6 @@ class FavoriteControl: UIButton {
     }
     
     func getShadowViewSize(side: CGFloat) -> CGSize {
-        
         let size = CGSize(width: side, height: side)
         return size
     }

@@ -28,6 +28,7 @@ class LoginRootView: UIView {
         textField.borderStyle = .roundedRect
         textField.layer.cornerRadius = 20
         textField.layer.borderWidth = 2
+        textField.autocapitalizationType = .none
         textField.setLeftPaddingPoints(20)
         textField.layer.borderColor = UIColor.lightGray.cgColor
         let imageView = UIImageView(frame: CGRect(x: 8.0, y: 8.0, width: 24.0, height: 24.0))

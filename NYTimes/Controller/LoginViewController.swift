@@ -11,7 +11,6 @@ import FirebaseAuth
 class LoginViewController: UIViewController {
     
     var mainTabbarController: MainTabBarController?
-    
     var rootView = LoginRootView()
     
     private var handle: AuthStateDidChangeListenerHandle!
@@ -45,14 +44,7 @@ class LoginViewController: UIViewController {
                 if let error = error {
                     print(error.localizedDescription)
                 }
-                //                else {
-                //                    Auth.auth().signIn(withEmail: email, password: password)
-                //                }
-                
             }
-            //            let userDefaults = UserDefaults.standard
-            //            userDefaults.set(email, forKey: "email")
-            //            userDefaults.set(password, forKey: "password")
         }
         alert.addAction(cancelAction)
         alert.addAction(saveAction)
@@ -79,11 +71,6 @@ class LoginViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
-        
-//        let mainVController = UINavigationController(rootViewController: mainTabbarController!)
-//        mainVController.modalPresentationStyle = .fullScreen
-//        mainTabbarController?.modalTransitionStyle = .flipHorizontal
-//        present(mainVController, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

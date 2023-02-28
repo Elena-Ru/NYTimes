@@ -22,45 +22,12 @@ class LoginRootView: UIView {
         text.textAlignment = .center
         return text
     }()
-    let loginTextFieldView: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Login"
-        textField.borderStyle = .roundedRect
-        textField.layer.cornerRadius = 20
-        textField.layer.borderWidth = 2
-        textField.setLeftPaddingPoints(20)
-        textField.layer.borderColor = UIColor.lightGray.cgColor
-        let imageView = UIImageView(frame: CGRect(x: 8.0, y: 8.0, width: 24.0, height: 24.0))
-        let image = UIImage(systemName: "person")
-        imageView.image = image
-        imageView.tintColor = .lightGray
-        imageView.contentMode = .scaleAspectFit
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 32, height: 40))
-        view.addSubview(imageView)
-        textField.leftViewMode = UITextField.ViewMode.always
-        textField.leftView = view
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
-    let passwordTextFieldView: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Password"
+    
+    let loginTextFieldView = CustomTextField(title: "Login", image: "person")
+    
+    let passwordTextFieldView: CustomTextField = {
+        let textField = CustomTextField(title: "Password", image: "lock")
         textField.isSecureTextEntry = true
-        textField.borderStyle = .roundedRect
-        textField.layer.cornerRadius = 20
-        textField.layer.borderWidth = 2
-        textField.setLeftPaddingPoints(20)
-        textField.layer.borderColor = UIColor.lightGray.cgColor
-        let imageView = UIImageView(frame: CGRect(x: 8.0, y: 8.0, width: 24.0, height: 24.0))
-        let image = UIImage(systemName: "lock")
-        imageView.image = image
-        imageView.tintColor = .lightGray
-        imageView.contentMode = .scaleAspectFit
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 32, height: 40))
-        view.addSubview(imageView)
-        textField.leftViewMode = UITextField.ViewMode.always
-        textField.leftView = view
-        textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
@@ -131,7 +98,7 @@ class LoginRootView: UIView {
         textFieldStack.addSubview(loginTextFieldView)
         scrollView.addSubview(textFieldStack)
         scrollView.addSubview(loginButton)
-
+        
         let signUpStack = UIStackView(arrangedSubviews: [signUpLabel, singUpButton])
         signUpStack.translatesAutoresizingMaskIntoConstraints = false
         signUpStack.distribution = .fillEqually
@@ -159,27 +126,27 @@ class LoginRootView: UIView {
             textDescribingView.leadingAnchor.constraint(equalTo: topImageContainerView.leadingAnchor, constant: 20),
             textDescribingView.widthAnchor.constraint(equalToConstant: topImageContainerView.frame.size.width * 0.8),
             textDescribingView.heightAnchor.constraint(equalToConstant: 30),
-
+            
             textFieldStack.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             textFieldStack.topAnchor.constraint(equalTo: topImageContainerView.bottomAnchor, constant: scrollView.frame.size.height * 0.05),
             textFieldStack.widthAnchor.constraint(equalToConstant: 200),
             textFieldStack.heightAnchor.constraint(equalToConstant: 100),
-
+            
             loginTextFieldView.topAnchor.constraint(equalTo: textFieldStack.topAnchor),
             loginTextFieldView.heightAnchor.constraint(equalToConstant: 38),
             loginTextFieldView.leadingAnchor.constraint(equalTo: textFieldStack.leadingAnchor),
             loginTextFieldView.trailingAnchor.constraint(equalTo: textFieldStack.trailingAnchor),
-
+            
             passwordTextFieldView.bottomAnchor.constraint(equalTo: textFieldStack.bottomAnchor),
             passwordTextFieldView.heightAnchor.constraint(equalToConstant: 38),
             passwordTextFieldView.leadingAnchor.constraint(equalTo: textFieldStack.leadingAnchor),
             passwordTextFieldView.trailingAnchor.constraint(equalTo: textFieldStack.trailingAnchor),
-
+            
             loginButton.topAnchor.constraint(equalTo: textFieldStack.bottomAnchor, constant: 30),
             loginButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             loginButton.heightAnchor.constraint(equalToConstant: 50),
             loginButton.widthAnchor.constraint(equalToConstant: 100),
-
+            
             signUpStack.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20),
             signUpStack.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             signUpStack.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.7),
@@ -206,7 +173,6 @@ class LoginRootView: UIView {
             UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
                 self.loginTextFieldView.transform = CGAffineTransform(translationX: 0, y: 0)
                 self.layoutIfNeeded()
-
             }
         }
     }
@@ -223,8 +189,8 @@ class LoginRootView: UIView {
             UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
                 self.passwordTextFieldView.transform = CGAffineTransform(translationX: 0, y: 0)
                 self.layoutIfNeeded()
-
             }
         }
     }
+    
 }

@@ -19,6 +19,7 @@
 		B4CD3E0329A8EF7D003130AE /* Extension+TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CD3E0229A8EF7D003130AE /* Extension+TextField.swift */; };
 		B4CD3E0729A918A1003130AE /* LoginRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CD3E0629A918A1003130AE /* LoginRootView.swift */; };
 		B4CD3E0929AA5CA4003130AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B4CD3E0829AA5CA3003130AE /* GoogleService-Info.plist */; };
+		B4CD3E0F29AE7987003130AE /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CD3E0E29AE7987003130AE /* CustomTextField.swift */; };
 		B4EFEEC12926AAA00055BF0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EFEEC02926AAA00055BF0B /* AppDelegate.swift */; };
 		B4EFEEC32926AAA00055BF0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EFEEC22926AAA00055BF0B /* SceneDelegate.swift */; };
 		B4EFEECA2926AAA20055BF0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4EFEEC92926AAA20055BF0B /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		B4CD3E0229A8EF7D003130AE /* Extension+TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+TextField.swift"; sourceTree = "<group>"; };
 		B4CD3E0629A918A1003130AE /* LoginRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRootView.swift; sourceTree = "<group>"; };
 		B4CD3E0829AA5CA3003130AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B4CD3E0E29AE7987003130AE /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		B4EFEEBD2926AAA00055BF0B /* NYTimes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYTimes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4EFEEC02926AAA00055BF0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4EFEEC22926AAA00055BF0B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				B429160F2928C0470097EC9A /* SharedTableViewCell.swift */,
 				B429165A292B8CC00097EC9A /* FavoriteControl.swift */,
 				B4CD3E0629A918A1003130AE /* LoginRootView.swift */,
+				B4CD3E0E29AE7987003130AE /* CustomTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				B4697B84292D5622000A0963 /* Article+CoreDataClass.swift in Sources */,
 				B4CD3E0329A8EF7D003130AE /* Extension+TextField.swift in Sources */,
 				B4291651292A90550097EC9A /* ServiceCoreData.swift in Sources */,
+				B4CD3E0F29AE7987003130AE /* CustomTextField.swift in Sources */,
 				B4EFEEC32926AAA00055BF0B /* SceneDelegate.swift in Sources */,
 				B4CD3E0729A918A1003130AE /* LoginRootView.swift in Sources */,
 				B42916102928C0470097EC9A /* SharedTableViewCell.swift in Sources */,

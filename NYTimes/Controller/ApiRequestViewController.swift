@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import Combine
 
 class ApiRequestViewController: UIViewController {
     
     let apiService = ApiService.shared
+    var cancellables = Set<AnyCancellable>()
     
     var news = [News]()
 
@@ -38,12 +40,21 @@ class ApiRequestViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        apiService.fetchData(type: requestType) { news in
-            guard let news = news else { return }
-            self.news = news
-            self.tableView.reloadData()
-        }
+      super.viewWillAppear(true)
+      ApiService.shared.fetchData(type: requestType)
+        .sink(receiveCompletion: { completion in
+          switch completion {
+          case .finished:
+            break
+          case .failure(let error):
+            print("Error: \(error.localizedDescription)")
+          }
+        }, receiveValue: { news in
+          print(news)
+          self.news = news
+          self.tableView.reloadData()
+        })
+        .store(in: &cancellables)
     }
     
     override func viewDidLayoutSubviews() {

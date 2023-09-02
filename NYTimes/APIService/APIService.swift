@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import Combine
 
 class ApiService {
     
@@ -15,26 +16,28 @@ class ApiService {
     
     private init(){}
     
-    func fetchData(type: String, completion: @escaping ([News]?) -> Void) {
+    func fetchData(type: String) -> AnyPublisher<[News], Error> {
         let path = "/mostpopular/v2/\(type)/30.json"
-        print(path)
         let parameters: Parameters = [
             "api-key" : ApiKey().key
         ]
         
         let url = baseUrl+path
         
-        AF.request(url, method: .get, parameters: parameters).responseData { response in
-            guard let data = response.value else {
-                completion(nil)
-                return
+        return Future { promise in
+            AF.request(url, method: .get, parameters: parameters).responseData { response in
+                switch response.result {
+                case .success(let data):
+                    do {
+                        let newsEnvelope = try JSONDecoder().decode(NewsEnvelope.self, from: data)
+                        promise(.success(newsEnvelope.results))
+                    } catch {
+                        promise(.failure(error))
+                    }
+                case .failure(let error):
+                    promise(.failure(error))
+                }
             }
-            let news = try? JSONDecoder().decode(NewsEnvelope.self, from: data)
-            news == nil ? completion(nil) : completion(news?.results)
-        }
+        }.eraseToAnyPublisher()
     }
 }
-                                                                                  
-                                                        
-                                             
-                                                                                                                                                                             

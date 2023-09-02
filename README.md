@@ -30,3 +30,4 @@ App looks pretty cool both in vertical and horizontal orientations.
 - SDWebImage for downloading, cache supporting images.
 
 ## For local data storing app uses CoreData
+Networking with Combine.
